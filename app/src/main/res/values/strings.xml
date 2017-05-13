@@ -1,0 +1,27 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="APP_NAME">Mwaslaty</string>
+    <string name="APP_SLOGAN">Get there fast...</string>
+    <string name="START">Start</string>
+    <string name="GO">Go!</string>
+    <string name="GPS">GPS</string>
+    <string name="MAP">Map</string>
+
+    <string name="title_activity_google_maps">Map</string>
+    <string name="LOADING">Loading...</string>
+    <string name="MAIN_PRESENTER_KEY">main_presenter_key</string>
+    <string name="all_stations_key">all stations key</string>
+    <string name="list">Choose from list</string>
+    <string name="res_station_key">Result Station</string>
+    <string name="source_station_key">source station key</string>
+    <string name="destination_station_key">destination staion key</string>
+
+    <string-array name="error_messages">
+        <item>No internet connection!</item>
+        <item>Loading Error Occurred!</item>
+        <item>There is no available data</item>
+        <item>Sorry for now, There is no available solution.</item>
+        <item>Please choose your source and destination stations!!</item>
+    </string-array>
+</resources>
