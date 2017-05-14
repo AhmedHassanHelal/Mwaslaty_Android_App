@@ -34,6 +34,10 @@ public class SolutionPresenter {
     }
 
 
+    public Solution getSolution() {
+        return mSolution;
+    }
+
     public void buttonClicked(int id) {
 
 

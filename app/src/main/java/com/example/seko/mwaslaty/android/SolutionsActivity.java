@@ -5,11 +5,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.seko.mwaslaty.android.adapter.SolutionsAdapter;
 import com.example.seko.mwaslaty.android.model.ErrorCodes;
+import com.example.seko.mwaslaty.android.model.Solution;
 import com.example.seko.mwaslaty.android.presenter.SolutionPresenter;
 import com.example.seko.mwaslaty.android.view.ISolutionView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Helal
@@ -17,8 +23,12 @@ import com.example.seko.mwaslaty.android.view.ISolutionView;
 
 public class SolutionsActivity extends AppCompatActivity implements ISolutionView {
 
+    List<Solution> mSolutions;
     private ProgressDialog progDailog;
     private SolutionPresenter mSolutionPresenter;
+    private ListView lvSolutions;
+
+    private SolutionsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +36,13 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
         setContentView(R.layout.activity_solutions);
 
         init();
+
+        loadSolutions();
     }
 
     private void init() {
         mSolutionPresenter = new SolutionPresenter(this);
+        lvSolutions = (ListView) findViewById(R.id.lvSolutions);
     }
 
     @Override
@@ -81,7 +94,15 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
 
     @Override
     public void showSolution() {
-
+        if (mSolutionPresenter.getSolution() != null) {
+            List<Solution> solutions = new ArrayList<Solution>();
+            solutions.add(mSolutionPresenter.getSolution());
+            adapter = new SolutionsAdapter(SolutionsActivity.this,
+                    R.id.lvSolutions, solutions);
+            lvSolutions.setAdapter(adapter);
+        } else {
+            showLoadingError(ErrorCodes.NO_DATA);
+        }
     }
 
     @Override

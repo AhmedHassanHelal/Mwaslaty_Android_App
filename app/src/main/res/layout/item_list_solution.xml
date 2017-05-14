@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="Left"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvSolutionName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvSolutionCostTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/SolutionCostTag" />
+
+        <TextView
+            android:id="@+id/tvSolutionCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tvSolutionCostTag"
+            android:layout_toRightOf="@id/tvSolutionCostTag"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/tvNumTransportTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvSolutionCostTag"
+            android:padding="5dp"
+            android:text="@string/NumTransportTag" />
+
+        <TextView
+            android:id="@+id/tvNumTransport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tvNumTransportTag"
+            android:layout_toRightOf="@id/tvNumTransportTag"
+            android:padding="5dp" />
+    </RelativeLayout>
+</LinearLayout>

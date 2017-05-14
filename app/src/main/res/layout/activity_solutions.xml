@@ -9,4 +9,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.seko.mwaslaty.android.SolutionsActivity">
 
+    <ListView
+        android:id="@+id/lvSolutions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/holo_orange_light"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/wallet_highlighted_text_holo_light"
+        android:dividerHeight="2dp"
+        android:gravity="right">
+
+    </ListView>
+
 </RelativeLayout>

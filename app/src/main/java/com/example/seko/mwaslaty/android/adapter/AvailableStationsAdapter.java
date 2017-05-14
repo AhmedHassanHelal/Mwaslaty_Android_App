@@ -25,6 +25,7 @@ public class AvailableStationsAdapter extends ArrayAdapter<Station> {
         this.availableStationsList = availableStationsList;
     }
 
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
         AvailableStationCell holder;

@@ -16,6 +16,8 @@
     <string name="res_station_key">Result Station</string>
     <string name="source_station_key">source station key</string>
     <string name="destination_station_key">destination staion key</string>
+    <string name="SolutionCostTag">Route cost:</string>
+    <string name="NumTransportTag">Num of transportation changes:</string>
 
     <string-array name="error_messages">
         <item>No internet connection!</item>
