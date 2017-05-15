@@ -19,7 +19,7 @@ public interface ISolutionView {
 
     void showLoadingError(ErrorCodes code);
 
-    void showSolution();
+    void showSolutions();
 
     void showSolutionOnMap();
 

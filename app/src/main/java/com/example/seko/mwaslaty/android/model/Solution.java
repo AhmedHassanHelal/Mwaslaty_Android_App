@@ -2,19 +2,27 @@ package com.example.seko.mwaslaty.android.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Arrays;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Helal on 10/05/2017.
  */
-public class Solution {
+public class Solution implements Serializable {
 
+    String tybe;
     @SerializedName("Cost")
     private String cost;
-
     @SerializedName("Checkpoint")
-    private Checkpoint[] checkpoints;
+    private List<Checkpoint> checkpoints;
+
+    public String getTybe() {
+        return tybe;
+    }
+
+    public void setTybe(String tybe) {
+        this.tybe = tybe;
+    }
 
     public String getCost() {
         return cost;
@@ -24,12 +32,12 @@ public class Solution {
         this.cost = cost;
     }
 
-    public List<Checkpoint> getChekpoint() {
-        return Arrays.asList(checkpoints);
+    public List<Checkpoint> getCheckpoints() {
+        return checkpoints;
     }
 
-    public void setChekpoint(Checkpoint[] checkpoint) {
-        this.checkpoints = checkpoint;
+    public void setCheckpoints(List<Checkpoint> checkpoints) {
+        this.checkpoints = checkpoints;
     }
 
     @Override

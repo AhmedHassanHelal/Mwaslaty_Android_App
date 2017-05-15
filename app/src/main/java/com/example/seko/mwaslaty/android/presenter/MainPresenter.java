@@ -85,7 +85,7 @@ public class MainPresenter implements Serializable {
                         .isInternetConnectionAvailable(mMainView
                                 .getContext());
                 if (isConnected) {
-                    mWebServiceManager.setCookies(Constants.MwaslatyAllStationCookies);
+                    mWebServiceManager.setCookies(Constants.MwaslatyCookie);
                     mJsonResponse = mWebServiceManager.GET(url);
                 }
                 if (mJsonResponse != null)
@@ -105,7 +105,6 @@ public class MainPresenter implements Serializable {
                     mMainView.showLoadingError(ErrorCodes.NO_DATA);
                 } else {
                     mAvailableStationsList = availableStationsList;
-//                    mAvailableCentersView.showAvailableCenters(availableCentersList);
                 }
             }
 

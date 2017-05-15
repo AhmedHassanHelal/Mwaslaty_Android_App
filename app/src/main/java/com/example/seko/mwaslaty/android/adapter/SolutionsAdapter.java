@@ -43,11 +43,11 @@ public class SolutionsAdapter extends ArrayAdapter<Solution> {
         holder = (SolutionCell) row.getTag();
         Solution solution = solutionList.get(position);
         if (position == 0)
-            holder.getTvSolutionName().setText("Best Cost:");
+            holder.getTvSolutionName().setText(solution.getTybe());
         else if (position == 1)
-            holder.getTvSolutionName().setText("Best Time:");
+            holder.getTvSolutionName().setText(solution.getTybe());
         holder.getTvSolutionCost().setText(solution.getCost() + "  EGP");
-        holder.getTvChangeTransportationNum().setText((solution.getChekpoint().size() - 1));
+        holder.getTvChangeTransportationNum().setText(String.valueOf(solution.getCheckpoints().size() - 1));
         return row;
     }
 

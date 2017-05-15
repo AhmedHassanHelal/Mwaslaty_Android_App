@@ -45,7 +45,7 @@ public class WebServiceManager implements IWebServiceManager {
             if (cookies != null)
                 c.setRequestProperty("Cookie", cookies);
             c.setConnectTimeout(5000);
-            c.setReadTimeout(5000);
+            c.setReadTimeout(50000);
             c.setRequestMethod("GET");
             c.connect();
             status = c.getResponseCode();

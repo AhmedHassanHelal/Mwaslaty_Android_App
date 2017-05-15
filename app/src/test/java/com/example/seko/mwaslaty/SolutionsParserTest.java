@@ -6,6 +6,9 @@ import com.example.seko.mwaslaty.parsers.SolutionsParser;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -35,22 +38,22 @@ public class SolutionsParserTest {
                 "}";
         Solution resultSolution = solutionsParser.getSolution(sampleJsonRespose);
         Solution expectedSolution = new Solution();
-        Checkpoint[] checkpoints = new Checkpoint[3];
-        checkpoints[0] = new Checkpoint();
-        checkpoints[0].setStationID("13");
-        checkpoints[0].setBusName("321");
-        checkpoints[1] = new Checkpoint();
-        checkpoints[1].setStationID("15");
-        checkpoints[1].setBusName("111");
-        checkpoints[2] = new Checkpoint();
-        checkpoints[2].setStationID("14");
-        checkpoints[2].setBusName("213");
-        expectedSolution.setChekpoint(checkpoints);
+        List<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
+        Checkpoint checkpoint = new Checkpoint();
+        checkpoint.setStationID("13");
+        checkpoint.setBusName("321");
+        checkpoint = new Checkpoint();
+        checkpoint.setStationID("15");
+        checkpoint.setBusName("111");
+        checkpoint = new Checkpoint();
+        checkpoint.setStationID("14");
+        checkpoint.setBusName("213");
+        expectedSolution.setCheckpoints(checkpoints);
         expectedSolution.setCost("6");
         assertEquals(expectedSolution.getCost(), resultSolution.getCost());
-        for (int i = 0; i < expectedSolution.getChekpoint().size(); i++) {
-            assertEquals(expectedSolution.getChekpoint().get(i).getBusName(), resultSolution.getChekpoint().get(i).getBusName());
-            assertEquals(expectedSolution.getChekpoint().get(i).getStationID(), resultSolution.getChekpoint().get(i).getStationID());
+        for (int i = 0; i < expectedSolution.getCheckpoints().size(); i++) {
+            assertEquals(expectedSolution.getCheckpoints().get(i).getBusName(), resultSolution.getCheckpoints().get(i).getBusName());
+            assertEquals(expectedSolution.getCheckpoints().get(i).getStationID(), resultSolution.getCheckpoints().get(i).getStationID());
         }
     }
 

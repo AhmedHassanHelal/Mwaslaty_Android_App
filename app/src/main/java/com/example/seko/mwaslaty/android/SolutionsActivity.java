@@ -2,19 +2,22 @@ package com.example.seko.mwaslaty.android;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.seko.mwaslaty.android.adapter.SolutionsAdapter;
 import com.example.seko.mwaslaty.android.model.ErrorCodes;
 import com.example.seko.mwaslaty.android.model.Solution;
+import com.example.seko.mwaslaty.android.model.Station;
 import com.example.seko.mwaslaty.android.presenter.SolutionPresenter;
 import com.example.seko.mwaslaty.android.view.ISolutionView;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -23,7 +26,7 @@ import java.util.List;
 
 public class SolutionsActivity extends AppCompatActivity implements ISolutionView {
 
-    List<Solution> mSolutions;
+    //    List<Station> mAllStations;
     private ProgressDialog progDailog;
     private SolutionPresenter mSolutionPresenter;
     private ListView lvSolutions;
@@ -37,7 +40,30 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
 
         init();
 
+        Bundle bundle = getIntent().getExtras();
+
+        mSolutionPresenter.setSourceStation((Station) bundle.getSerializable(getResources().getString(R.string.source_station_key)));
+        mSolutionPresenter.setDestinationStation((Station) bundle.getSerializable(getResources().getString(R.string.destination_station_key)));
+        mSolutionPresenter.setAllStations((List<Station>) bundle.getSerializable(getResources().getString(R.string.all_stations_key)));
+
         loadSolutions();
+
+        lvSolutions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // TODO Auto-generated method stub
+                Intent goToDrawSolutionActivityIntent = new Intent(SolutionsActivity.this, DrawSolutionOnGoogleMapActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(getResources().getString(
+                        R.string.all_stations_key), (Serializable) mSolutionPresenter.getmAllStations());
+                bundle.putSerializable(getResources().getString(
+                        R.string.source_station_key), (Serializable) mSolutionPresenter.getmSourceStation());
+                bundle.putSerializable(getResources().getString(
+                        R.string.solution_key), (Serializable) mSolutionPresenter.getSolutions().get(position));
+                goToDrawSolutionActivityIntent.putExtras(bundle);
+                startActivity(goToDrawSolutionActivityIntent);
+            }
+        });
     }
 
     private void init() {
@@ -93,16 +119,16 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
     }
 
     @Override
-    public void showSolution() {
-        if (mSolutionPresenter.getSolution() != null) {
-            List<Solution> solutions = new ArrayList<Solution>();
-            solutions.add(mSolutionPresenter.getSolution());
+    public void showSolutions() {
+        List<Solution> solutions = mSolutionPresenter.getSolutions();
+        if (solutions != null) {
             adapter = new SolutionsAdapter(SolutionsActivity.this,
                     R.id.lvSolutions, solutions);
             lvSolutions.setAdapter(adapter);
-        } else {
-            showLoadingError(ErrorCodes.NO_DATA);
         }
+//        else {
+//            showLoadingError(ErrorCodes.NO_DATA);
+//        }
     }
 
     @Override
