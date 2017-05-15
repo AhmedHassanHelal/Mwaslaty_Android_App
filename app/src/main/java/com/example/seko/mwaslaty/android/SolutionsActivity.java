@@ -107,7 +107,7 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
         Toast.makeText(SolutionsActivity.this,
                 getResources().getStringArray(R.array.error_messages)[index],
                 Toast.LENGTH_SHORT).show();
-        finish();
+//        finish();
     }
 
     @Override
