@@ -28,7 +28,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".StartupActivity"
+            android:configChanges="orientation"
             android:label="@string/APP_NAME"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -51,12 +56,22 @@
 
         <activity
             android:name=".GoogleMapsActivity"
-            android:label="@string/title_activity_google_maps" />
-        <activity android:name=".AvailableStationsActivity" />
-        <activity android:name=".SolutionsActivity" />
+            android:configChanges="orientation"
+            android:label="@string/title_activity_google_maps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AvailableStationsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SolutionsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DrawSolutionOnGoogleMapActivity"
-            android:label="@string/title_activity_draw_solution_on_google_map"></activity>
+            android:configChanges="orientation"
+            android:label="@string/title_activity_draw_solution_on_google_map"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

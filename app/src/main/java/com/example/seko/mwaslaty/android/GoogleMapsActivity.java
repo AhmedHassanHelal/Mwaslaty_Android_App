@@ -58,7 +58,7 @@ public class GoogleMapsActivity extends FragmentActivity implements IGoogleMapsV
 
         mMap.setOnMarkerClickListener(this);
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(cairo));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cairo, (float) 15.0));
     }
 
     private void putAllMarkersOnStations() {
@@ -68,6 +68,7 @@ public class GoogleMapsActivity extends FragmentActivity implements IGoogleMapsV
             markerOptions.title(station.getName());
             markerOptions.snippet(String.valueOf(station.getID()));
             mMap.addMarker(markerOptions);
+
         }
     }
 

@@ -12,7 +12,7 @@
     <string name="LOADING">Loading...</string>
     <string name="MAIN_PRESENTER_KEY">main_presenter_key</string>
     <string name="all_stations_key">all stations key</string>
-    <string name="list">Choose from list</string>
+    <string name="list">Choose station</string>
     <string name="res_station_key">Result Station</string>
     <string name="source_station_key">source station key</string>
     <string name="destination_station_key">destination staion key</string>

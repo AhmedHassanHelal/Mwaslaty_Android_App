@@ -45,7 +45,7 @@ public class WebServiceManager implements IWebServiceManager {
             if (cookies != null)
                 c.setRequestProperty("Cookie", cookies);
             c.setConnectTimeout(5000);
-            c.setReadTimeout(50000);
+            c.setReadTimeout(30000);
             c.setRequestMethod("GET");
             c.connect();
             status = c.getResponseCode();
@@ -65,7 +65,7 @@ public class WebServiceManager implements IWebServiceManager {
         } catch (MalformedURLException ex) {
             Log.d(TAG, ex.getMessage());
         } catch (IOException ex) {
-            Log.d(TAG, ex.getMessage());
+//            Log.d(TAG, ex.getMessage());
         } catch (Exception ex) {
             Log.d(TAG, ex.getMessage());
         } finally {

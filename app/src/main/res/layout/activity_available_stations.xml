@@ -14,7 +14,7 @@
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/darker_gray"
+        android:background="@android:color/white"
         android:hint="اسم المحطة ..." />
 
     <ListView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@android:color/holo_orange_light"
+        android:background="@color/wallet_highlighted_text_holo_light"
         android:cacheColorHint="#00000000"
         android:divider="@color/wallet_highlighted_text_holo_light"
         android:dividerHeight="2dp"

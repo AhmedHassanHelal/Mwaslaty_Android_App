@@ -97,8 +97,9 @@ public class MainPresenter implements Serializable {
             @Override
             protected void onPostExecute(Void aVoid) {
                 mMainView.hideLoadingIndicator();
-                if (!isConnected)
+                if (!isConnected) {
                     mMainView.showLoadingError(ErrorCodes.NO_INTERNET_CONNECTION);
+                }
                 if (null == availableStationsList) {
                     mMainView.showLoadingError(ErrorCodes.ERROR_LOADING);
                 } else if (availableStationsList.size() == 0) {

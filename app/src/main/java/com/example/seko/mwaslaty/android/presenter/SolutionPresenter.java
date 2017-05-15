@@ -114,7 +114,7 @@ public class SolutionPresenter {
                 } else if (solution.getCheckpoints().size() == 0) {
                     mSolutionView.showLoadingError(ErrorCodes.NO_SOLUTION);
                 } else {
-                    solution.setTybe("Best Time:");
+                    solution.setTybe("Default route:");
                     if (mSolutions == null)
                         mSolutions = new ArrayList<Solution>();
                     mSolutions.add(solution);

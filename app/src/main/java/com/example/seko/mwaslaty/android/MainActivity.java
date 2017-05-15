@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,6 +17,8 @@ import com.example.seko.mwaslaty.android.view.IMainView;
 
 import java.io.Serializable;
 import java.util.List;
+
+//import android.util.Log;
 
 /**
  * Created by Helal
@@ -81,18 +82,20 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            Station resStation = (Station) data.getExtras().getSerializable(getResources().getString(
+            Station resultStation = (Station) data.getExtras().getSerializable(getResources().getString(
                     R.string.res_station_key));
             switch (requestCode) {
                 case 1:
                 case 2:
-                    mMainPresenter.setSourceStation(resStation);
-                    Log.v("exce", resStation.getName());
+                    mMainPresenter.setSourceStation(resultStation);
+                    btnGetSourceFromList.setText(resultStation.getName());
+//                    Log.v("exce", resStation.getName());
                     break;
                 case 3:
                 case 4:
-                    mMainPresenter.setDestinationStation(resStation);
-                    Log.v("exce", resStation.getName());
+                    mMainPresenter.setDestinationStation(resultStation);
+                    btnGetDestinationFromList.setText(resultStation.getName());
+//                    Log.v("exce", resStation.getName());
                     break;
                 default:
                     break;
@@ -185,6 +188,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         Toast.makeText(MainActivity.this,
                 getResources().getStringArray(R.array.error_messages)[index],
                 Toast.LENGTH_SHORT).show();
+        if (index != 4)
+            finish();
     }
 
     @Override

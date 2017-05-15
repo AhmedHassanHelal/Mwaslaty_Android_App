@@ -8,5 +8,6 @@
     <TextView
         android:id="@+id/tvAvailableStationName"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="40dp"
+        android:textColor="@android:color/white" />
 </LinearLayout>

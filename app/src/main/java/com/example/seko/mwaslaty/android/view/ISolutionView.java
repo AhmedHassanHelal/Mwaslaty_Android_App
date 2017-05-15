@@ -21,7 +21,7 @@ public interface ISolutionView {
 
     void showSolutions();
 
-    void showSolutionOnMap();
+    void showSolutionOnMap(int solutionIndex);
 
     void onClick(View v);
 }

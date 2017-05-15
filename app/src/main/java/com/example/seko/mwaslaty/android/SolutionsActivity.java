@@ -52,16 +52,7 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // TODO Auto-generated method stub
-                Intent goToDrawSolutionActivityIntent = new Intent(SolutionsActivity.this, DrawSolutionOnGoogleMapActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(getResources().getString(
-                        R.string.all_stations_key), (Serializable) mSolutionPresenter.getmAllStations());
-                bundle.putSerializable(getResources().getString(
-                        R.string.source_station_key), (Serializable) mSolutionPresenter.getmSourceStation());
-                bundle.putSerializable(getResources().getString(
-                        R.string.solution_key), (Serializable) mSolutionPresenter.getSolutions().get(position));
-                goToDrawSolutionActivityIntent.putExtras(bundle);
-                startActivity(goToDrawSolutionActivityIntent);
+                showSolutionOnMap(position);
             }
         });
     }
@@ -116,6 +107,7 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
         Toast.makeText(SolutionsActivity.this,
                 getResources().getStringArray(R.array.error_messages)[index],
                 Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
@@ -132,8 +124,17 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
     }
 
     @Override
-    public void showSolutionOnMap() {
-
+    public void showSolutionOnMap(int solutionIndex) {
+        Intent goToDrawSolutionActivityIntent = new Intent(SolutionsActivity.this, DrawSolutionOnGoogleMapActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(getResources().getString(
+                R.string.all_stations_key), (Serializable) mSolutionPresenter.getmAllStations());
+        bundle.putSerializable(getResources().getString(
+                R.string.source_station_key), (Serializable) mSolutionPresenter.getmSourceStation());
+        bundle.putSerializable(getResources().getString(
+                R.string.solution_key), (Serializable) mSolutionPresenter.getSolutions().get(solutionIndex));
+        goToDrawSolutionActivityIntent.putExtras(bundle);
+        startActivity(goToDrawSolutionActivityIntent);
     }
 
     @Override

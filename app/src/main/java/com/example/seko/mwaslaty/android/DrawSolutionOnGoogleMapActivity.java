@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.example.seko.mwaslaty.android.model.Solution;
 import com.example.seko.mwaslaty.android.model.Station;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -66,7 +67,7 @@ public class DrawSolutionOnGoogleMapActivity extends FragmentActivity implements
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         String transportation;
-        if (solution.getCheckpoints().get(0).getBusID() == null)
+        if (solution.getCheckpoints().get(0).getBusID() == null || solution.getCheckpoints().get(0).getBusID() == "NULL")
             transportation = "مترو ";
         else
             transportation = "اتوبيس: " + solution.getCheckpoints().get(0).getBusID().toString();
@@ -77,11 +78,11 @@ public class DrawSolutionOnGoogleMapActivity extends FragmentActivity implements
                 .add(new LatLng(sourceStation.getLatitude(), sourceStation.getLongitude()));
         for (int i = 1; i < solution.getCheckpoints().size(); i++) {
             station = getStationById(Integer.parseInt(solution.getCheckpoints().get(i - 1).getStationID()));
-            if (solution.getCheckpoints().get(i).getBusID() == null)
+            if (solution.getCheckpoints().get(i).getBusID() == null || solution.getCheckpoints().get(0).getBusID() == "NULL")
                 transportation = "مترو ";
             else
                 transportation = "اتوبيس: " + solution.getCheckpoints().get(i).getBusID().toString();
-            msg = "انزل محطة: " + station.getName().toString() + "واركب: " + transportation;
+            msg = "انزل محطة: " + station.getName().toString() + " واركب: " + transportation;
             mMap.addMarker(new MarkerOptions().position(new LatLng(station.getLatitude(), station.getLongitude())).title(msg));
             rectOptions.add(new LatLng(station.getLatitude(), station.getLongitude()));
         }
@@ -93,6 +94,6 @@ public class DrawSolutionOnGoogleMapActivity extends FragmentActivity implements
         // Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(sourceStation.getLatitude(), sourceStation.getLongitude()), (float) 10.0));
     }
 }
