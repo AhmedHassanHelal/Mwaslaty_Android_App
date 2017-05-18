@@ -8,5 +8,5 @@ public enum ErrorCodes {
     ERROR_LOADING,
     NO_DATA,
     No_STATION_CHOSEN,
-    NO_SOLUTION
+    IDENTICAL, NO_SOLUTION
 }

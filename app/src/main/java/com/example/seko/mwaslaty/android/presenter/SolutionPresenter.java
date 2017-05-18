@@ -66,10 +66,10 @@ public class SolutionPresenter {
         return mSolutions;
     }
 
-    public void buttonClicked(int id) {
-
-
-    }
+//    public void buttonClicked(int id) {
+//
+//
+//    }
 
     public void loadSolutions() {
         loadBestTimeSolution();
@@ -106,7 +106,7 @@ public class SolutionPresenter {
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                mSolutionView.hideLoadingIndicator();
+//                mSolutionView.hideLoadingIndicator();
                 if (!isConnected)
                     mSolutionView.showLoadingError(ErrorCodes.NO_INTERNET_CONNECTION);
                 if (null == solution || solution.getCheckpoints() == null) {
@@ -134,7 +134,7 @@ public class SolutionPresenter {
 
             @Override
             protected void onPreExecute() {
-                mSolutionView.showLoadingIndicator();
+//                mSolutionView.showLoadingIndicator();
                 solution = new Solution();
                 isConnected = false;
             }

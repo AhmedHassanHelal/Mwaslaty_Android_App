@@ -25,6 +25,7 @@
         <item>There is no available data</item>
         <item>Sorry for now, There is no available solution.</item>
         <item>Please choose your source and destination stations!!</item>
+        <item>You are already there!</item>
     </string-array>
     <string name="title_activity_draw_solution_on_google_map">Map</string>
     <string name="solution_key">solution key</string>

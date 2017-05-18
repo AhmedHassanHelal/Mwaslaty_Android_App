@@ -1,7 +1,6 @@
 package com.example.seko.mwaslaty.android.view;
 
 import android.content.Context;
-import android.view.View;
 
 import com.example.seko.mwaslaty.android.model.ErrorCodes;
 
@@ -23,5 +22,5 @@ public interface ISolutionView {
 
     void showSolutionOnMap(int solutionIndex);
 
-    void onClick(View v);
+//    void onClick(View v);
 }

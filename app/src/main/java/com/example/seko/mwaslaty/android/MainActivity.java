@@ -184,6 +184,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             case No_STATION_CHOSEN:
                 index = 4;
                 break;
+            case IDENTICAL:
+                index = 5;
+                break;
         }
         Toast.makeText(MainActivity.this,
                 getResources().getStringArray(R.array.error_messages)[index],

@@ -132,6 +132,8 @@ public class MainPresenter implements Serializable {
                     mMainView.showLoadingError(ErrorCodes.NO_DATA);
                 } else if (getSourceStation() == null || getDestinationStation() == null) {
                     mMainView.showLoadingError(ErrorCodes.No_STATION_CHOSEN);
+                } else if (getSourceStation().getID() == getDestinationStation().getID()) {
+                    mMainView.showLoadingError(ErrorCodes.IDENTICAL);
                 } else {
                     mMainView.navigateToSolutionActivity();
                 }

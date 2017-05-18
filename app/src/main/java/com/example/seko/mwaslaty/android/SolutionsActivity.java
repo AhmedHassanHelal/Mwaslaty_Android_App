@@ -137,8 +137,8 @@ public class SolutionsActivity extends AppCompatActivity implements ISolutionVie
         startActivity(goToDrawSolutionActivityIntent);
     }
 
-    @Override
-    public void onClick(View v) {
-        mSolutionPresenter.buttonClicked(v.getId());
-    }
+//    @Override
+//    public void onClick(View v) {
+//        mSolutionPresenter.buttonClicked(v.getId());
+//    }
 }
