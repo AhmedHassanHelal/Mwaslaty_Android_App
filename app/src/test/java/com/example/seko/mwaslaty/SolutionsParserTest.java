@@ -41,18 +41,18 @@ public class SolutionsParserTest {
         List<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
         Checkpoint checkpoint = new Checkpoint();
         checkpoint.setStationID("13");
-        checkpoint.setBusName("321");
+        checkpoint.setBusID("321");
         checkpoint = new Checkpoint();
         checkpoint.setStationID("15");
-        checkpoint.setBusName("111");
+        checkpoint.setBusID("111");
         checkpoint = new Checkpoint();
         checkpoint.setStationID("14");
-        checkpoint.setBusName("213");
+        checkpoint.setBusID("213");
         expectedSolution.setCheckpoints(checkpoints);
         expectedSolution.setCost("6");
         assertEquals(expectedSolution.getCost(), resultSolution.getCost());
         for (int i = 0; i < expectedSolution.getCheckpoints().size(); i++) {
-            assertEquals(expectedSolution.getCheckpoints().get(i).getBusName(), resultSolution.getCheckpoints().get(i).getBusName());
+            assertEquals(expectedSolution.getCheckpoints().get(i).getBusID(), resultSolution.getCheckpoints().get(i).getBusID());
             assertEquals(expectedSolution.getCheckpoints().get(i).getStationID(), resultSolution.getCheckpoints().get(i).getStationID());
         }
     }
